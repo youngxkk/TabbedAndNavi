@@ -15,7 +15,17 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //下面与当前界面的导航栏有关
+        //滚动视图
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 400))
+        scrollView.backgroundColor = UIColor.brown
+        scrollView.bounces = true
+        scrollView.alwaysBounceVertical = true
+        scrollView.contentOffset.y = 100
+        scrollView.isPagingEnabled = true
+        scrollView.delegate = self as? UIScrollViewDelegate
+        scrollView.showsVerticalScrollIndicator = true
+        self.view.addSubview(scrollView)
+
         
         //实例话导航条
         navigationBar = UINavigationBar()
@@ -45,45 +55,45 @@ class ThirdViewController: UIViewController {
         let btn1 = publicButton(title: "左上")
         //下面这行是指btn1的 Y 轴的大小等于状态栏的大小，也就意味着在状态栏下方
         btn1.frame.origin.y = statusFrame.height + 44
-        self.view.addSubview(btn1)
+        scrollView.addSubview(btn1)
         
         let btn2 = publicButton(title: "右上")
         btn2.frame.origin.y = statusFrame.height + 44
         //下面这行是指，右上的方块，x 轴的位置等于屏宽减 方块本身的尺寸
         btn2.frame.origin.x = self.view.bounds.width - btn2.frame.width
-        self.view.addSubview(btn2)
+        scrollView.addSubview(btn2)
         
         let btn3 = publicButton(title: "中上")
         btn3.frame.origin.y = statusFrame.height + 44
         btn3.center.x = self.view.bounds.width / 2
-        self.view.addSubview(btn3)
+        scrollView.addSubview(btn3)
         
         let btn4 = publicButton(title: "左中")
         btn4.center.y = self.view.bounds.height / 2
-        self.view.addSubview(btn4)
+        scrollView.addSubview(btn4)
         
         let btn5 = publicButton(title: "中间")
         btn5.center = self.view.center
-        self.view.addSubview(btn5)
+        scrollView.addSubview(btn5)
         
         let btn6 = publicButton(title: "右中")
         btn6.frame.origin.x = self.view.bounds.width - btn6.frame.width
         btn6.center.y = self.view.bounds.height / 2
-        self.view.addSubview(btn6)
+        scrollView.addSubview(btn6)
         
         let btn7 = publicButton(title: "左下")
         btn7.frame.origin.y = self.view.bounds.height - btn7.frame.height - 44
-        self.view.addSubview(btn7)
+        scrollView.addSubview(btn7)
         
         let btn8 = publicButton(title: "中下")
         btn8.center.x = self.view.bounds.width / 2
         btn8.frame.origin.y = self.view.bounds.height - btn8.frame.height - 44
-        self.view.addSubview(btn8)
+        scrollView.addSubview(btn8)
         
         let btn9 = publicButton(title: "右下")
         btn9.frame.origin.x = self.view.frame.width - btn9.frame.width
         btn9.frame.origin.y = self.view.bounds.height - btn9.frame.height - 44
-        self.view.addSubview(btn9)
+        scrollView.addSubview(btn9)
         
         
         
